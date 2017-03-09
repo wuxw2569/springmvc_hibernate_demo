@@ -9,6 +9,7 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -19,6 +20,8 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -60,6 +63,9 @@ public class AcctUser implements java.io.Serializable {
 
 	@Id
 	@Column(name = "id", unique = true, nullable = false, length = 36)
+	//@GeneratedValue(generator = "idGenerator")  
+	//@GenericGenerator(name = "idGenerator", strategy = "com.wuxw.test.util.IdGeneratorUtil",  
+	//    parameters = { @Parameter(name = "dataCenterID", value = "20") ,@Parameter(name = "idLength", value = "10")})  
 	public String getId() {
 		return this.id;
 	}
